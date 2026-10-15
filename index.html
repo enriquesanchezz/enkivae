@@ -55,17 +55,21 @@
   nav.top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
   .logo { font:700 1.9rem "Fredoka",sans-serif; color:#14234b; text-decoration:none; letter-spacing:-.01em; }
   .logo b { color:var(--brand); font-weight:700; }
-  @media (prefers-color-scheme: dark) { .logo { color:#e9eefb; } }
+  @media (prefers-color-scheme: dark) { .logo { color:#e9eefb; } .hero-phone, .phone { background:#2a3a63; box-shadow:0 34px 60px -26px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.08); } }
   .hero-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center; margin-top:28px; }
   .hero h1 { font-size:clamp(2.4rem,6vw,4rem); }
   .hero h1 .hl { color:var(--brand); }
   .hero p.lead { font-size:1.2rem; margin:18px 0 26px; max-width:34ch; }
   .cta { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
   .soon { margin-top:16px; font-weight:700; color:var(--muted); font-size:.95rem; }
-  .hero-art { position:relative; }
-  .hero-art img.enki { width:100%; max-width:470px; margin:0 auto; filter:drop-shadow(0 20px 30px rgba(20,35,75,.25)); animation:float 5s ease-in-out infinite; }
-  @keyframes float { 50% { transform:translateY(-10px); } }
-  @media (prefers-reduced-motion: reduce) { .hero-art img.enki { animation:none; } }
+  .hero-art { position:relative; display:flex; justify-content:center; padding:10px 0 20px; }
+  .hero-phone { width:270px; border-radius:2.3rem; padding:9px; background:#14234b; box-shadow:0 34px 60px -26px rgba(20,35,75,.65); transform:rotate(3deg); }
+  .hero-phone .screen { border-radius:1.8rem; overflow:hidden; aspect-ratio:390/700; background:#eaf4ff; }
+  .hero-phone .screen img { width:100%; height:auto; display:block; }
+  .hero-enki { position:absolute; left:calc(50% - 255px); bottom:0; width:140px; filter:drop-shadow(0 12px 16px rgba(20,35,75,.28)); animation:float 5s ease-in-out infinite; }
+  .hero-bubble { position:absolute; z-index:2; left:max(8px, calc(50% - 290px)); bottom:150px; white-space:nowrap; background:var(--card); color:var(--ink); font:600 1.05rem "Fredoka",sans-serif; padding:.7rem 1rem; border-radius:1.4rem 1.4rem 1.4rem .45rem; box-shadow:0 12px 24px -12px rgba(20,35,75,.4); transform:rotate(-3deg); }
+  @keyframes float { 50% { transform:translateY(-8px); } }
+  @media (prefers-reduced-motion: reduce) { .hero-enki { animation:none; } }
   .trust { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
   .trust span { background:rgba(255,255,255,.75); color:#14234b; }
   @media (prefers-color-scheme: dark) { .trust span { background:rgba(255,255,255,.1); color:#e9eefb; } }
@@ -153,7 +157,10 @@
     .hero-grid { grid-template-columns:1fr; text-align:center; }
     .hero p.lead { margin-left:auto; margin-right:auto; }
     .cta, .trust { justify-content:center; }
-    .hero-art img.enki { max-width:340px; }
+    .hero-phone { width:230px; }
+    .hero-enki { width:110px; left:max(0px, calc(50% - 190px)); }
+    .hero-bubble { left:max(6px, calc(50% - 190px)); bottom:128px; font-size:.92rem; }
+    .hero-enki { width:100px; }
     .perks { grid-template-columns:1fr 1fr; }
     .tutors { grid-template-columns:1fr 1fr; }
     .route { grid-template-columns:repeat(3,1fr); }
@@ -195,7 +202,11 @@
           <span class="pill">🚫 Sin anuncios</span>
         </div>
       </div>
-      <div class="hero-art"><img class="enki" src="img/enki-hero.webp" alt="Enki, el perico de Enkivae, saludando en varios idiomas" width="700" height="491"></div>
+      <div class="hero-art">
+        <div class="hero-phone"><div class="screen"><img src="img/session.webp" alt="Conversación con un tutor de Enkivae y una corrección explicada"></div></div>
+        <span class="hero-bubble">Hello! Soy Enki 🦜</span>
+        <img class="hero-enki" src="img/enki.webp" alt="Enki, el perico de Enkivae" width="150" height="150">
+      </div>
     </div>
   </div>
 </header>
